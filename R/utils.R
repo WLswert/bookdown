@@ -54,7 +54,8 @@ set_opts_knit = function(config) {
 }
 
 readUTF8 = function(input) {
-  readLines(input, encoding = 'UTF-8', warn = FALSE)
+  if(sessionInfo()$R.version$platform =='x86_64-w64-mingw32') readLines(input, warn = FALSE)
+    else readLines(input, encoding = 'UTF-8', warn = FALSE)
 }
 
 writeUTF8 = function(text, ...) {
